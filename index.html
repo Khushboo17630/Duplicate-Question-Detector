@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duplicate Question Detector</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4a148c;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #ab47bc;
+            box-shadow: 0 0 6px #ce93d8;
+        }
+
+        input[type="submit"] {
+            background-color: #8e24aa;
+            color: #fff;
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6a1b9a;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #1b5e20;
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔍 Duplicate Question Detector</h2>
+        <form action="/predict" method="post">
+            <label for="question1">Question 1:</label>
+            <textarea name="question1" rows="3" required>{{ q1 if q1 is defined else '' }}</textarea>
+
+            <label for="question2">Question 2:</label>
+            <textarea name="question2" rows="3" required>{{ q2 if q2 is defined else '' }}</textarea>
+
+            <input type="submit" name="action" value="Predict">
+            <input type="submit" name="action" value="Clear">
+        </form>
+
+        {% if prediction_text %}
+            <div class="prediction">
+                <strong>Prediction:</strong> {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
