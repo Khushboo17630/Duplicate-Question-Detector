@@ -72,7 +72,7 @@ A Machine Learning project to detect duplicate questions using **Quora Question 
 ---
 
 ## 📸 Screenshots of the web app interface
-<b>1. Screenshot before entering question</><br>
+<b>1. Screenshot before entering question<br>
 ![Screenshot (1060)](https://github.com/user-attachments/assets/52d105d6-0363-484e-9987-8e69d41f6297)
 
 
